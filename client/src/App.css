@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+  flex-direction: column;
+}
+.App-header {
+  
+  /*min-height: 100vh;
+  display: flex;
+  flex-direction: column;*/
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #282c34;
+}
+
+button {
+  color: #61dafb;
+  background-color: #282c34;
+  font-size: large;
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  width: 100px;
+}
+p{
+  display: block;
+  flex-direction: column;
+}
+p input{
+  height:30px;
+  border-radius: 10px;
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
+}
+p label{
+  margin-left: 25px;
+}
