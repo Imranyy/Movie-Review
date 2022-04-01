@@ -1,6 +1,8 @@
 const Header= (props)=>{
     return(
-     <h1>{props.title}</h1>
+    <>
+    <h1 style={{marginLeft:'200px'}}>{props.title}</h1>
+    </>
     );
 }
 
