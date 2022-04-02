@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 const Home=()=>{
     const [user,setUser]=useState({
         movie_name:"",
-        movie_review:""
+        movie_review:"",
+        author:""
     });
-    const {movie_name, movie_review}=user;
+    const {movie_name, movie_review,author}=user;
     const onInputChange=e=>{
         setUser({...user,[e.target.name]:e.target.value})
     };
@@ -28,6 +29,8 @@ const Home=()=>{
             <input type="text" name='movie_name' placeholder='silicon valley' value={movie_name} onChange={e=>onInputChange(e)} required/> 
             <label>Movie Review:</label>
             <input type="text" name='movie_review' placeholder=" was good" value={movie_review} onChange={e=>onInputChange(e)} required/> 
+            <label>Author:</label>
+            <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>onInputChange(e)}/> 
             </p>
             <Footer/>
             </form>

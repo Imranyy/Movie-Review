@@ -37,11 +37,17 @@ button {
   height: 40px;
   width: 100px;
 }
-p{
-  display: block;
+form p{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form{
+  display: flex;
   flex-direction: column;
 }
 p input{
+  width: 40%;
   height:30px;
   border-radius: 10px;
   font-size: large;
@@ -49,4 +55,24 @@ p input{
 }
 p label{
   margin-left: 25px;
+}
+.movie{
+  height: 10%;
+  width: 60%;
+  padding: 10px 16px;
+  margin-left:22%;
+  border-bottom: 1px solid #fafafa;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.movie:hover{
+  background-image:url('./images/Perspective\ Drawing\ for\ Beginners.mp4\ -\ VLC\ media\ player\ 4_1_2022\ 8_59_38\ AM.png');
+  background-size: contain;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  color:white;
+}
+.movie h2{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px;
 }
