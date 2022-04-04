@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import Footerhome from './Footerhome';
 const Submitpage=()=>{
     const [user,setUser]=useState({
         movie_name:"",
@@ -35,7 +36,7 @@ const Submitpage=()=>{
             <Footer/>
             </form>
             </header>  
-            
+            <Footerhome/>
             </div>
 
     );
