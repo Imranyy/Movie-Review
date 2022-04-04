@@ -56,6 +56,13 @@ p input{
 p label{
   margin-left: 25px;
 }
+textarea{
+  width: 40%;
+  height:70px;
+  border-radius: 10px;
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
+}
 .movie{
   height: 10%;
   width: 60%;

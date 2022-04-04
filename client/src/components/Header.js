@@ -1,8 +1,9 @@
-const Header= ({title,title1})=>{
+const Header= ({title,title1,hr})=>{
     return(
     <>
-    <h1 style={{marginLeft:'200px'}}>{title}</h1>
+    <h1 style={{marginLeft:'200px', marginBottom:'-20px'}}>{title}</h1>
     <h1>{title1}</h1>
+    <p style={{borderBottom:'1px solid grey'}}>{hr}</p>
     </>
     );
 }
