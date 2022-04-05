@@ -18,8 +18,8 @@ const Home=()=>{
 
     //closing modal start
     const start=()=>{
-      const aboutmeClose=document.querySelector('.aboutme');
-       aboutmeClose.classList.add('close');
+      const aboutmeClose=document.querySelector('.aboutme.open');
+       aboutmeClose.classList.remove('open');
     }
     //next modal
     const next=()=>{
@@ -33,14 +33,22 @@ const Home=()=>{
       const aboutmeClose=document.querySelector('.aboutme');
      aboutmeClose.classList.add('open');
     }
-
+    //enter
+    const enter=()=>{
+      const splash=document.querySelector('.splash');
+      splash.classList.add('close');
+    }
+    
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
       <Header title1="Reviews"/> <br/>
         <Link to='/submitpage' style={{float:'right',marginRight:'12%', marginTop:'-90px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
         <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={info}>info</button>
+        <div className="splash" onClick={enter}>
+            <i className="material-icons rotate" style={{fontSize:'2000%',margin:'11% auto',borderRadius:'100px',color:'white'}}>group_work</i>
+        </div>
 
-        <div className="aboutme">
+        <div className="aboutme" >
           <div className="modal">
             <div className="part1">
             <h2 style={{marginTop:'-10px'}}>Info:</h2>
@@ -54,7 +62,7 @@ const Home=()=>{
               <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto'}}>About Me</h2>
               <p>I go by the name <em><strong>Ringside</strong></em>, the creator of this site. You can reach me by either the following:</p>
               <div style={{display:'flex',justifyContent:'space-around', marginTop:'-10px'}}>
-                <div><h4>Whatsapp:0754423664</h4><br/><i className="material-icons" style={{marginTop:'-100px',color:'green',cursor:'pointer'}}>whatsapp</i></div>
+                <div><h4>Whatsapp:0754423664</h4><br/><a href="https://wa.me/+254754423664" target='_blank' rel="noopener"><i className="material-icons" style={{marginTop:'-100px',color:'green',cursor:'pointer'}}>whatsapp</i></a></div>
                 <div><h4>Email: imranmat245@gmail.com</h4><br/><i class="material-icons" style={{marginTop:'-100px', color:'blue'}}>email</i></div>
                 <div><h4>instagram: imrany</h4><br/><i className="material-icons" style={{marginTop:'-100px', color:'red'}}>chat</i></div>
               </div>

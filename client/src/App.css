@@ -94,9 +94,9 @@ textarea{
 .aboutme.open{
   display: block;
 }
-/*.aboutme.close{
+.aboutme.close{
   display: none;
-}*/
+}
 .modal{
   width: 50%;
   height: 30%;
@@ -135,4 +135,40 @@ textarea{
 .part2.open{
   /*font-family: 'Rubik Glitch', cursive;*/
   display: block;
+}
+.splash{
+  margin-top: -110px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+  display: block;
+}
+.splash.close{
+  display: none;
+}
+@keyframes r{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+@keyframes r1 {
+  from{
+    transform: rotate(360deg);
+  }
+  to{
+    transform: rotate(0deg);
+  }
+}
+.rotate{
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  animation-name: r;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
