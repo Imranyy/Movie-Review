@@ -28,11 +28,17 @@ const Home=()=>{
       showNext.classList.add('close');
       Next.classList.add('open');
     }
+    //open inf
+    const info=()=>{
+      const aboutmeClose=document.querySelector('.aboutme');
+     aboutmeClose.classList.add('open');
+    }
 
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
       <Header title1="Reviews"/> <br/>
-        <Link to='/submitpage' style={{float:'right',marginRight:'12%', marginTop:'-90px'}}>Add Review</Link>
+        <Link to='/submitpage' style={{float:'right',marginRight:'12%', marginTop:'-90px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
+        <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={info}>info</button>
 
         <div className="aboutme">
           <div className="modal">
@@ -72,7 +78,7 @@ const Home=()=>{
           </div>
             </div>*/}
 
-          <div style={{marginBottom:'15%',margin:'auto', fontFamily:'consolas,arial',marginBottom:'10%'}}>
+          <div style={{margin:'auto', fontFamily:'consolas,arial',marginBottom:'10%'}}>
            {user && user.map((review)=>(
             <div className="movie" key={review.id}>
                 <h2>Title: {review.movie_name}</h2>

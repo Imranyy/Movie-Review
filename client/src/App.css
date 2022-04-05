@@ -89,10 +89,14 @@ textarea{
   position: fixed;
   background: rgba(0,0,0,0.4);
   z-index: 1;
-}
-.aboutme.close{
   display: none;
 }
+.aboutme.open{
+  display: block;
+}
+/*.aboutme.close{
+  display: none;
+}*/
 .modal{
   width: 50%;
   height: 30%;
