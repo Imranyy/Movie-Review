@@ -72,7 +72,7 @@ const Home=()=>{
           </div>
             </div>*/}
 
-          <div style={{marginBottom:'15%',margin:'auto', fontFamily:'consolas,arial'}}>
+          <div style={{marginBottom:'15%',margin:'auto', fontFamily:'consolas,arial',marginBottom:'10%'}}>
            {user && user.map((review)=>(
             <div className="movie" key={review.id}>
                 <h2>Title: {review.movie_name}</h2>
