@@ -48,11 +48,11 @@ const Home=()=>{
               <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto'}}>About Me</h2>
               <p>I go by the name <em><strong>Ringside</strong></em>, the creator of this site. You can reach me by either the following:</p>
               <div style={{display:'flex',justifyContent:'space-around', marginTop:'-10px'}}>
-                <div><h4>Whatsapp:0754423664</h4><br/><i className="material-icons">whatsapp</i></div>
-                <div><h4>Email: imranmat245@gmail.com</h4><br/><i className="material-icons">whatsapp</i></div>
-                <div><h4>instagram: imrany</h4><br/><i className="material-icons" style={{marginTop:'-20px'}}>face</i></div>
+                <div><h4>Whatsapp:0754423664</h4><br/><i className="material-icons" style={{marginTop:'-100px',color:'green',cursor:'pointer'}}>whatsapp</i></div>
+                <div><h4>Email: imranmat245@gmail.com</h4><br/><i class="material-icons" style={{marginTop:'-100px', color:'blue'}}>email</i></div>
+                <div><h4>instagram: imrany</h4><br/><i className="material-icons" style={{marginTop:'-100px', color:'red'}}>chat</i></div>
               </div>
-              <button className="btn" onClick={start}>Start</button>
+              <button className="btn" onClick={start} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto'}}>Start</button>
             </div>
 
           </div>
