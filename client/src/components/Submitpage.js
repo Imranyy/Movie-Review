@@ -23,7 +23,7 @@ const Submitpage=()=>{
     return(
         <div className="App">
         <header className="App-header">
-        <Link to='/'><button style={{float:'right',marginRight:'20px',color:'white',marginTop:'-25px', width:'150px',fontFamily:'cursive'}}>Review page</button></Link>
+        <Link to='/'><button style={{float:'right',marginRight:'20px',color:'white',marginTop:'-25px', width:'150px'}}>Review page</button></Link>
          <Header title="Movies Site"/>
           <form onSubmit={e=>onSubmit(e)}>
              <p><label>Movie Name:</label>

@@ -40,13 +40,18 @@ const Home=()=>{
             <h2 style={{marginTop:'-10px'}}>Info:</h2>
             <p style={{fontFamily:'consolas,Arial'}}>
                This is a site for movie and series lovers. In here, you can review your favorites' and recommend it to other, you can also checkout best watched movies and 
-               series from this site. This site focuses on builting a community of movie enthusiates people, bring them together while sharing movies and series.
+               series from this site. This site focuses on builting a community of movie enthusiastic people, bring them together while sharing movies and series.
             </p>
             <button className="btn" onClick={next}>Next</button>
             </div>
             <div className="part2">
-              <h2>About Me</h2>
-
+              <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto'}}>About Me</h2>
+              <p>I go by the name <em><strong>Ringside</strong></em>, the creator of this site. You can reach me by either the following:</p>
+              <div style={{display:'flex',justifyContent:'space-around', marginTop:'-10px'}}>
+                <div><h4>Whatsapp:0754423664</h4><br/><i className="material-icons">whatsapp</i></div>
+                <div><h4>Email: imranmat245@gmail.com</h4><br/><i className="material-icons">whatsapp</i></div>
+                <div><h4>instagram: imrany</h4><br/><i className="material-icons" style={{marginTop:'-20px'}}>face</i></div>
+              </div>
               <button className="btn" onClick={start}>Start</button>
             </div>
 
@@ -67,7 +72,7 @@ const Home=()=>{
           </div>
             </div>*/}
 
-          <div style={{marginBottom:'15%',margin:'auto'}}>
+          <div style={{marginBottom:'15%',margin:'auto', fontFamily:'consolas,arial'}}>
            {user && user.map((review)=>(
             <div className="movie" key={review.id}>
                 <h2>Title: {review.movie_name}</h2>
