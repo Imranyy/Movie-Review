@@ -38,12 +38,32 @@ const Home=()=>{
       const splash=document.querySelector('.splash');
       splash.classList.add('close');
     }
-    
+    //login modal
+    const login=()=>{
+      const login=document.querySelector('.login')
+      login.classList.add('open')
+    }
+    //closing login
+    const closelogin=()=>{
+      const close=document.querySelector('.login.open')
+      close.classList.remove('open')
+    }
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
       <Header title1="Reviews"/> <br/>
         <Link to='/submitpage' style={{float:'right',marginRight:'12%', marginTop:'-90px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
         <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={info}>info</button>
+        
+        <div className="login" onClick={closelogin}>
+          <div className="loginmodal">
+            <form>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" required style={{height:'30px'}}/>
+              <button style={{margin:'5% auto'}}>Submit</button>
+            </form>
+          </div>
+        </div>
+
         <div className="splash" onClick={enter}>
             <i className="material-icons rotate" style={{fontSize:'2000%',margin:'11% auto',borderRadius:'100px',color:'white'}}>group_work</i>
         </div>
@@ -66,7 +86,8 @@ const Home=()=>{
                 <div><h4>Email: imranmat245@gmail.com</h4><br/><i class="material-icons" style={{marginTop:'-100px', color:'blue'}}>email</i></div>
                 <div><h4>instagram: imrany</h4><br/><i className="material-icons" style={{marginTop:'-100px', color:'red'}}>chat</i></div>
               </div>
-              <button className="btn" onClick={start} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto'}}>Start</button>
+              <button className="btn" onClick={login} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto',float:'left'}}>Staff Only<i className="material-icons" style={{fontSize:'12px'}}>not_interested</i></button>
+              <button className="btn" onClick={start} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto'}}>Leave</button>
             </div>
 
           </div>
