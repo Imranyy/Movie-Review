@@ -2,6 +2,7 @@ import {useEffect,useState} from "react";
 import Header from "./Header"
 import { Link } from "react-router-dom";
 import Footerhome from "./Footerhome";
+import SwipeableTextMobileStepper from "./Carousel"
 const Home=()=>{
     const [user,setUser]=useState("");
   // const [movie_review,setMovie_review]=useState("");
@@ -65,14 +66,16 @@ const Home=()=>{
         <Link to='/submitpage' style={{float:'right',marginRight:'19%', marginTop:'-90px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
         <button className="btn" style={{marginRight:'10%', marginTop:'-90px'}} onClick={info}>info</button>
         <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={comment}>Comment</button>
+        
+        <SwipeableTextMobileStepper/>
         <div className="comment">
           <div className="commentmodal">
             <form>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea placeholder="comment" required style={{height:'30px',width:'100%'}}/>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea placeholder="comment" required style={{height:'70%',width:'100%'}}/>
               <button style={{margin:'5% auto'}}>Submit</button>
             </form>
-            <buton onClick={closecomment} style={{float:'right',marginTop:'-8%', cursor:'pointer'}}> <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>ads_click</i></buton>
+            <div onClick={closecomment} style={{float:'right',marginTop:'-8%', cursor:'pointer'}}> <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>ads_click</i></div>
           </div>
         </div>
 
@@ -83,7 +86,7 @@ const Home=()=>{
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" required style={{height:'30px'}}/>
               <button style={{margin:'5% auto'}}>Submit</button>
             </form>
-            <buton onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}><i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>ads_click</i></buton>
+            <div onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}><i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>ads_click</i></div>
           </div>
         </div>
 
