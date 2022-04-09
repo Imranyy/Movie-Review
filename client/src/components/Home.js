@@ -2,7 +2,7 @@ import {useEffect,useState} from "react";
 import Header from "./Header"
 import { Link } from "react-router-dom";
 import Footerhome from "./Footerhome";
-import SwipeableTextMobileStepper from "./Carousel"
+//import SwipeableTextMobileStepper from "./Carousel"
 const Home=()=>{
     const [user,setUser]=useState("");
   // const [movie_review,setMovie_review]=useState("");
