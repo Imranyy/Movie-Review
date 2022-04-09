@@ -2,8 +2,10 @@ import {useEffect,useState} from "react";
 import Header from "./Header"
 import { Link } from "react-router-dom";
 import Footerhome from "./Footerhome";
-//import SwipeableTextMobileStepper from "./Carousel"
+import Button from '@mui/material/Button'
+import SwipeableTextMobileStepper from "./Carousel"
 const Home=()=>{
+  
     const [user,setUser]=useState("");
   // const [movie_review,setMovie_review]=useState("");
     useEffect(()=>{
@@ -60,6 +62,7 @@ const Home=()=>{
       close.classList.remove('open')
     }
 
+    
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
       <Header title1="Reviews"/> <br/>
@@ -73,9 +76,9 @@ const Home=()=>{
             <form>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea placeholder="comment" required style={{height:'70%',width:'100%'}}/>
-              <button style={{margin:'5% auto'}}>Submit</button>
+              <Button variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
             </form>
-            <div onClick={closecomment} style={{float:'right',marginTop:'-8%', cursor:'pointer'}}> <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>ads_click</i></div>
+            <Button onClick={closecomment} style={{float:'right',marginTop:'-11%', cursor:'pointer'}}> Close</Button>
           </div>
         </div>
 
@@ -84,9 +87,9 @@ const Home=()=>{
             <form>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" required style={{height:'30px'}}/>
-              <button style={{margin:'5% auto'}}>Submit</button>
+              <Button variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
             </form>
-            <div onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}><i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>ads_click</i></div>
+            <Button color='primary' onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}> Close</Button>
           </div>
         </div>
 
