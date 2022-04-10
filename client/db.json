@@ -1,5 +1,19 @@
-{
-  "posts": [
+{ 
+  "animations": [
+    {
+      "id": 1,
+      "movie_name": "silicon valley",
+      "movie_review": "good"
+    }
+  ],
+  "movies": [
+  {
+    "id": 1,
+    "movie_name": "silicon valley",
+    "movie_review": "good"
+  }
+],
+  "series": [
     {
       "id": 1,
       "movie_name": "silicon valley",
@@ -187,6 +201,17 @@
       "movie_review": "",
       "author": "",
       "id": 32
+    }
+  ],
+  "Type":[
+    {
+      "Genre":"Movie"
+    },
+    {
+      "Genre":"Animation"
+    },
+    {
+      "Genre":"Tv show/ Series"
     }
   ]
 }

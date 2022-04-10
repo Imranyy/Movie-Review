@@ -2,10 +2,10 @@ import axios from 'axios';
 import React,{useState} from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
 import Footerhome from './Footerhome';
-import {toast} from "react-toastify"
+import { useNavigate } from 'react-router-dom';
 const Submitpage=()=>{
+    const navigate=useNavigate();
     const [user,setUser]=useState({
         movie_name:"",
         movie_review:"",
@@ -18,24 +18,24 @@ const Submitpage=()=>{
 
     const onSubmit=async e=>{
         e.preventDefault();
-        await axios.post("http://localhost:5000/posts",user);
-        //alert('Request Sent');
-        if(!movie_name || !movie_review || !author){
-            return toast.error("Input field required");
-        }
+        await axios.post("http://localhost:5001/series",user);
+        alert('Request Sent');
+    }
+    const back=()=>{
+        navigate('/serielist');
     }
     return(
         <div className="App">
         <header className="App-header">
-        <Link to='/'><button style={{float:'right',marginRight:'20px',color:'white',marginTop:'-25px', width:'150px'}}>Review page</button></Link>
-         <Header title="Movies Site"/>
+        <button className='btn' onClick={back} style={{float:'right',marginRight:'20px',marginTop:'-25px'}}>Back</button>
+         <Header title="Add Review"/>
           <form onSubmit={e=>onSubmit(e)}>
-             <p><label>Movie Name:</label>
-            <input type="text" name='movie_name' placeholder='silicon valley' value={movie_name} onChange={e=>onInputChange(e)}/> 
+             <p><label>Tv show/Series:</label>
+            <input type="text" name='movie_name' placeholder='Tv show /series' value={movie_name} onChange={e=>onInputChange(e)} required/> 
             <label>Author:</label>
-            <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>onInputChange(e)}/> 
-            <label>Movie Review:</label>
-            <textarea name='movie_review' placeholder=" was good" value={movie_review} onChange={e=>onInputChange(e)} /> 
+            <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>onInputChange(e)} required/> 
+            <label>Review:</label>
+            <textarea name='movie_review' placeholder=" was good" value={movie_review} onChange={e=>onInputChange(e)} required /> 
            </p>
             <Footer/>
             </form>

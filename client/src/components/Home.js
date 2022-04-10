@@ -1,21 +1,22 @@
-import {useEffect,useState} from "react";
+//import {useEffect,useState} from "react";
 import Header from "./Header"
 import { Link } from "react-router-dom";
 import Footerhome from "./Footerhome";
 import Button from '@mui/material/Button'
 import SwipeableTextMobileStepper from "./Carousel"
+//import {db} from "../FirebaseConfig/Fireconfig";
 const Home=()=>{
   
-    const [user,setUser]=useState("");
+    /*const [user,setUser]=useState("");
   // const [movie_review,setMovie_review]=useState("");
     useEffect(()=>{
         const FetchReviews=async()=>{
-            const res=await fetch('http://localhost:5000/posts');
+            const res=await fetch('http://localhost:5001/Type');
             const data=await res.json();
             setUser(data);
         }
         FetchReviews()
-    },[]);
+    },[]);*/
 
 
 
@@ -65,9 +66,8 @@ const Home=()=>{
     
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
-      <Header title1="Reviews"/> <br/>
-        <Link to='/submitpage' style={{float:'right',marginRight:'19%', marginTop:'-90px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
-        <button className="btn" style={{marginRight:'10%', marginTop:'-90px'}} onClick={info}>info</button>
+      <Header title1="Movies Site"/> <br/>
+       <button className="btn" style={{marginRight:'10%', marginTop:'-90px'}} onClick={info}>info</button>
         <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={comment}>Comment</button>
         
         <SwipeableTextMobileStepper/>
@@ -75,8 +75,8 @@ const Home=()=>{
           <div className="commentmodal">
             <form>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea placeholder="comment" required style={{height:'70%',width:'100%'}}/>
-              <Button variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea placeholder="your comment on the website" required style={{height:'70%',width:'100%'}}/>
+              <Button type="submit" variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
             </form>
             <Button onClick={closecomment} style={{float:'right',marginTop:'-11%', cursor:'pointer'}}> Close</Button>
           </div>
@@ -84,17 +84,18 @@ const Home=()=>{
 
         <div className="login">
           <div className="loginmodal">
+          <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto',color:'blueviolet'}}>Login</h2>
             <form>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" required style={{height:'30px'}}/>
-              <Button variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
+              <Button type="submit" variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
             </form>
             <Button color='primary' onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}> Close</Button>
           </div>
         </div>
 
         <div className="splash" onClick={enter}>
-            <i className="material-icons rotate" style={{fontSize:'2000%',margin:'11% auto',borderRadius:'100px',color:'white'}}>group_work</i>
+            <i className="material-icons rotate" style={{fontSize:'2000%',margin:'11% auto',borderRadius:'100px',color:'white'}}>theater_comedy</i>
         </div>
 
         <div className="aboutme" >
@@ -122,28 +123,25 @@ const Home=()=>{
           </div>
         </div>
 
-        {/*<div className="clickable">
-          <div className="modal">
-            <> <p>lik</p>
-            {user && user.map((review)=>(
-            <div className="movie" key={review.id}>
-                <h2>Title: {review.movie_name}</h2>
-                <h3>Review: {review.movie_review}</h3>
-                <p>Author: {review.author}</p>
-            </div>
-            ))};
-            </>
-          </div>
-            </div>*/}
-
-          <div style={{margin:'auto', fontFamily:'consolas,arial',marginBottom:'10%'}}>
-           {user && user.map((review)=>(
-            <div className="movie" key={review.id}>
-                <h2>Title: {review.movie_name}</h2>
-                <h3>Review: {review.movie_review}</h3>
-                <p>Author: {review.author}</p>
+            <div style={{margin:'auto', fontFamily:'consolas,arial',marginBottom:'10%'}}>
+           
+             <Link to={`/movielist`} style={{textDecoration:'none'}}>
+            <div className="movie">
+                <h2 style={{margin:'0 30% 0 30%'}}>Type: Movies</h2> 
            </div>
-          ))}
+           </Link>
+           
+           <Link to={`/serielist`} style={{textDecoration:'none'}}>
+            <div className="movie">
+                <h2 style={{margin:'0 30% 0 30%'}}>Type: Series</h2> 
+           </div>
+           </Link>
+          
+           <Link to={`/animationlist`} style={{textDecoration:'none'}}>
+            <div className="movie">
+                <h2 style={{margin:'0 30% 0 30%'}}>Type: Animations</h2> 
+           </div>
+           </Link>
          </div>
         <Footerhome/>
         </div>
