@@ -1,26 +1,26 @@
-import axios from 'axios';
+
 import Header from '../Header';
 import Footer from '../Footer';
 import { useState } from 'react';
 import Footerhome from '../Footerhome';
 import { useNavigate } from 'react-router-dom';
-
-const Animeform=()=>{
-        const navigate=useNavigate();
-        const [user,setUser]=useState({
-            movie_name:"",
-            movie_review:"",
-            author:""
-        });
-        const {movie_name, movie_review,author}=user;
-        const onInputChange=e=>{
-            setUser({...user,[e.target.name]:e.target.value})
-        };
+import {db} from '../../FirebaseConfig/Fireconfig'
+import {collection,addDoc} from 'firebase/firestore'
     
+const Animeform=()=>{
+    const userCollectionRef=collection(db,"animation");
+        const navigate=useNavigate();
+        const [animation_name,setNewanimation] =useState('')
+        const [review,setReview] =useState('')
+        const [author,setAuthor] =useState('')
+       
+        
         const onSubmit=async e=>{
             e.preventDefault();
-            await axios.post("http://localhost:5001/series",user);
-            alert('Request Sent');
+            alert('Your Review was Sent');
+            navigate('/animationlist')
+            await addDoc(userCollectionRef,{animation_name,review,author});
+          
         }
         const back=()=>{
             navigate('/animationlist');
@@ -30,13 +30,13 @@ const Animeform=()=>{
             <header className="App-header">
             <button className='btn' onClick={back} style={{float:'right',marginRight:'20px',marginTop:'-25px'}}>Back</button>
              <Header title="Add Review"/>
-              <form onSubmit={e=>onSubmit(e)}>
+              <form onSubmit={onSubmit}>
                  <p><label>Animation Name:</label>
-                <input type="text" name='movie_name' placeholder='Animation Name' value={movie_name} onChange={e=>onInputChange(e)} required/> 
+                <input type="text" name='animation_name' placeholder='Animation Name' value={animation_name} onChange={e=>{setNewanimation(e.target.value)}} required/> 
                 <label>Author:</label>
-                <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>onInputChange(e)} required/> 
+                <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>{setAuthor(e.target.value)}} required/> 
                 <label>Review:</label>
-                <textarea name='movie_review' placeholder=" was good" value={movie_review} onChange={e=>onInputChange(e)} required /> 
+                <textarea name='review' placeholder=" was good" value={review} onChange={e=>{setReview(e.target.value)}} required /> 
                </p>
                 <Footer/>
                 </form>

@@ -1,25 +1,14 @@
-//import {useEffect,useState} from "react";
 import Header from "./Header"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footerhome from "./Footerhome";
 import Button from '@mui/material/Button'
-import SwipeableTextMobileStepper from "./Carousel"
-//import {db} from "../FirebaseConfig/Fireconfig";
+import { useState } from "react";
+import { db, auth } from "../FirebaseConfig/Fireconfig";
+import { collection,addDoc } from "firebase/firestore";
+import {} from 'firebase/auth'
+
 const Home=()=>{
   
-    /*const [user,setUser]=useState("");
-  // const [movie_review,setMovie_review]=useState("");
-    useEffect(()=>{
-        const FetchReviews=async()=>{
-            const res=await fetch('http://localhost:5001/Type');
-            const data=await res.json();
-            setUser(data);
-        }
-        FetchReviews()
-    },[]);*/
-
-
-
     //closing modal start
     const start=()=>{
       const aboutmeClose=document.querySelector('.aboutme.open');
@@ -37,11 +26,7 @@ const Home=()=>{
       const aboutmeClose=document.querySelector('.aboutme');
      aboutmeClose.classList.add('open');
     }
-    //enter
-    const enter=()=>{
-      const splash=document.querySelector('.splash');
-      splash.classList.add('close');
-    }
+    
     //login modal
     const login=()=>{
       const login=document.querySelector('.login')
@@ -53,7 +38,7 @@ const Home=()=>{
       close.classList.remove('open')
     }
     //comment
-    const comment=()=>{
+    const comments=()=>{
        const comment=document.querySelector('.comment')
        comment.classList.add('open')
     }
@@ -62,20 +47,31 @@ const Home=()=>{
       const close=document.querySelector('.comment.open')
       close.classList.remove('open')
     }
-
+    const userCollectionRef=collection(db,"comments");
+    const [email,setEmail]=useState('');
+    const [comment,setComment]=useState('');
+    const addcomment=async(e)=>{
+      e.preventDefault();
+      alert('Your Comment was Sent');
+      closecomment();
+      await addDoc(userCollectionRef,{email,comment});
+    }
+    
+    const [loginemail,setLoginemail]=useState("");
+    const [loginpassword,setLoginpassword]=useState("");
     
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
       <Header title1="Movies Site"/> <br/>
        <button className="btn" style={{marginRight:'10%', marginTop:'-90px'}} onClick={info}>info</button>
-        <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={comment}>Comment</button>
+        <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={comments}>Comment</button>
         
-        <SwipeableTextMobileStepper/>
+     
         <div className="comment">
           <div className="commentmodal">
-            <form>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea placeholder="your comment on the website" required style={{height:'70%',width:'100%'}}/>
+            <form  onSubmit={addcomment}>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="enter email" required style={{height:'30px'}}/>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea name="comment" value={comment} onChange={(e)=>{setComment(e.target.value)}} placeholder="your comment on the website" required style={{height:'70%',width:'100%'}}/>
               <Button type="submit" variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
             </form>
             <Button onClick={closecomment} style={{float:'right',marginTop:'-11%', cursor:'pointer'}}> Close</Button>
@@ -86,17 +82,15 @@ const Home=()=>{
           <div className="loginmodal">
           <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto',color:'blueviolet'}}>Login</h2>
             <form>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' placeholder="enter email" required style={{height:'30px'}}/>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" required style={{height:'30px'}}/>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' name='loginemail' value={loginemail} placeholder="enter email" required style={{height:'30px'}} onChange={e=>{setLoginemail(e.target.value)}}/>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" name='loginpassword' value={loginpassword} required style={{height:'30px'}} onChange={e=>{setLoginpassword(e.target.value)}}/>
               <Button type="submit" variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
             </form>
             <Button color='primary' onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}> Close</Button>
           </div>
         </div>
 
-        <div className="splash" onClick={enter}>
-            <i className="material-icons rotate" style={{fontSize:'2000%',margin:'11% auto',borderRadius:'100px',color:'white'}}>theater_comedy</i>
-        </div>
+        
 
         <div className="aboutme" >
           <div className="modal">
@@ -127,19 +121,19 @@ const Home=()=>{
            
              <Link to={`/movielist`} style={{textDecoration:'none'}}>
             <div className="movie">
-                <h2 style={{margin:'0 30% 0 30%'}}>Type: Movies</h2> 
+                <h2 style={{margin:'0 30% 0 10%'}}>: Movies</h2> 
            </div>
            </Link>
            
            <Link to={`/serielist`} style={{textDecoration:'none'}}>
             <div className="movie">
-                <h2 style={{margin:'0 30% 0 30%'}}>Type: Series</h2> 
+                <h2 style={{margin:'0 30% 0 23%'}}>: Tv shows /Series</h2> 
            </div>
            </Link>
           
            <Link to={`/animationlist`} style={{textDecoration:'none'}}>
             <div className="movie">
-                <h2 style={{margin:'0 30% 0 30%'}}>Type: Animations</h2> 
+                <h2 style={{margin:'0 30% 0 15%'}}>: Animations</h2> 
            </div>
            </Link>
          </div>

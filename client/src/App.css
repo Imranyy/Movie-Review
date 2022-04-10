@@ -63,8 +63,8 @@ textarea{
   font-family: 'Courier New', Courier, monospace;
 }
 .movie{
-  height: 140px;
-  width: 60%;
+  height: 130px;
+  width: 70%;
   padding: 10px 16px;
   margin:0 auto;
   border-bottom: 1px solid gray;
@@ -79,8 +79,8 @@ textarea{
 }
 .movie h2{
   margin-left: 10px;
-  font-size: 30px;
-  color: #f1356d;
+  font-size: 25px;
+  color: #165153;
   margin-bottom: 8px;
 }
 .aboutme{

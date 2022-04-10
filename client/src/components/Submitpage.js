@@ -1,41 +1,45 @@
-import axios from 'axios';
+
 import React,{useState} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Footerhome from './Footerhome';
 import { useNavigate } from 'react-router-dom';
+import {db} from '../FirebaseConfig/Fireconfig'
+import {collection,addDoc} from 'firebase/firestore'
 const Submitpage=()=>{
+    const userCollectionRef=collection(db,"series");
     const navigate=useNavigate();
-    const [user,setUser]=useState({
-        movie_name:"",
-        movie_review:"",
-        author:""
-    });
-    const {movie_name, movie_review,author}=user;
-    const onInputChange=e=>{
-        setUser({...user,[e.target.name]:e.target.value})
-    };
+    const [serie_name,setSerie] =useState('')
+    const [author,setAuthor] =useState('')
+    const [review,setReview] =useState('')
 
-    const onSubmit=async e=>{
+
+   
+    
+
+    const onSubmit=async(e)=>{
         e.preventDefault();
-        await axios.post("http://localhost:5001/series",user);
-        alert('Request Sent');
+        alert('Your Review was Sent');
+        navigate('/serielist')
+        await addDoc(userCollectionRef,{serie_name,author,review});
+       
     }
     const back=()=>{
         navigate('/serielist');
     }
+   
     return(
         <div className="App">
         <header className="App-header">
         <button className='btn' onClick={back} style={{float:'right',marginRight:'20px',marginTop:'-25px'}}>Back</button>
          <Header title="Add Review"/>
-          <form onSubmit={e=>onSubmit(e)}>
+          <form onSubmit={onSubmit}>
              <p><label>Tv show/Series:</label>
-            <input type="text" name='movie_name' placeholder='Tv show /series' value={movie_name} onChange={e=>onInputChange(e)} required/> 
+            <input type="text" name='serie_name' placeholder='Tv show /series' value={serie_name} onChange={e=>{setSerie(e.target.value)}} required/> 
             <label>Author:</label>
-            <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>onInputChange(e)} required/> 
+            <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>setAuthor(e.target.value)} required/> 
             <label>Review:</label>
-            <textarea name='movie_review' placeholder=" was good" value={movie_review} onChange={e=>onInputChange(e)} required /> 
+            <textarea name='review' placeholder=" was good" value={review} onChange={e=>setReview(e.target.value)} required /> 
            </p>
             <Footer/>
             </form>
