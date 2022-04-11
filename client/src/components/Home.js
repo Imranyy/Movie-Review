@@ -5,10 +5,10 @@ import Button from '@mui/material/Button'
 import { useState } from "react";
 import { db, auth } from "../FirebaseConfig/Fireconfig";
 import { collection,addDoc } from "firebase/firestore";
-import {} from 'firebase/auth'
+import {createUserWithEmailAndPassword} from 'firebase/auth'
 
 const Home=()=>{
-  
+  const navigate=useNavigate();
     //closing modal start
     const start=()=>{
       const aboutmeClose=document.querySelector('.aboutme.open');
@@ -59,6 +59,11 @@ const Home=()=>{
     
     const [loginemail,setLoginemail]=useState("");
     const [loginpassword,setLoginpassword]=useState("");
+    const Loginuser=async()=>{
+        await createUserWithEmailAndPassword(auth,loginemail,loginpassword);
+        alert('You are authorized');
+        navigate('/comment')
+    }
     
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
@@ -81,10 +86,10 @@ const Home=()=>{
         <div className="login">
           <div className="loginmodal">
           <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto',color:'blueviolet'}}>Login</h2>
-            <form>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' name='loginemail' value={loginemail} placeholder="enter email" required style={{height:'30px'}} onChange={e=>{setLoginemail(e.target.value)}}/>
-              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" name='loginpassword' value={loginpassword} required style={{height:'30px'}} onChange={e=>{setLoginpassword(e.target.value)}}/>
-              <Button type="submit" variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
+            <form onSubmit={Loginuser}>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' name='loginemail' value={loginemail} placeholder="enter email" required style={{height:'30px'}} onChange={(e)=>{setLoginemail(e.target.value)}}/>
+              <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" name='loginpassword' value={loginpassword} required style={{height:'30px'}} onChange={(e)=>{setLoginpassword(e.target.value)}}/>
+              <Button type="submit"  variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
             </form>
             <Button color='primary' onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}> Close</Button>
           </div>
