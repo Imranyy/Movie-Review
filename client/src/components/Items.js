@@ -5,16 +5,23 @@ import {db} from "../FirebaseConfig/Fireconfig";
 import {collection,getDocs} from 'firebase/firestore'
 
 const Items=()=>{
+   
     const [user,setUser]=useState([]);
+    const [para,setPara]=useState("");
     const userCollectionRef=collection(db,"series")
     useEffect(()=>{
+      try{
         const FetchReviews=async()=>{
-          const data=await getDocs(userCollectionRef);
+            const data=await getDocs(userCollectionRef);
             setUser(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
-        };
+        }; 
 
         FetchReviews();
-    },[]);
+    
+  }catch (error){
+      setPara('fetching data...must sure you have a good Internet-Connection')
+    }
+   },[]);
     //enter
     const enter=()=>{
         const splash=document.querySelector('.splash');
@@ -29,6 +36,7 @@ const Items=()=>{
         </div>
            {user && user.map((review)=>(
                 <article style={{margin:'5% 20%',}} key={review.id}>
+                  <h2 style={{margin:'11% auto'}}>{para}</h2>
                     <h2 style={{borderBottom:'solid 1px grey'}}>{review.serie_name}</h2>
                     <p>Reviewed by: <i style={{color:'green'}}>{review.author}</i></p>
                 <div>Review: {review.review}</div>

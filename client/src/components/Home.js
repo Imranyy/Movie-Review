@@ -5,7 +5,7 @@ import Button from '@mui/material/Button'
 import { useState } from "react";
 import { db, auth } from "../FirebaseConfig/Fireconfig";
 import { collection,addDoc } from "firebase/firestore";
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const Home=()=>{
   const navigate=useNavigate();
@@ -59,15 +59,22 @@ const Home=()=>{
     
     const [loginemail,setLoginemail]=useState("");
     const [loginpassword,setLoginpassword]=useState("");
-    const Loginuser=async()=>{
-        await createUserWithEmailAndPassword(auth,loginemail,loginpassword);
+    const [para,setPara]=useState("");
+    const Loginuser=async(e)=>{
+      e.preventDefault();
+        try{
+          await signInWithEmailAndPassword(auth,loginemail,loginpassword);
         alert('You are authorized');
         navigate('/comment')
+      }catch (error){
+        setPara('not authorized');
+        navigate('/')
+      }
     }
     
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
-      <Header title1="Movies Site"/> <br/>
+      <Header title1="Movies Site"/>
        <button className="btn" style={{marginRight:'10%', marginTop:'-90px'}} onClick={info}>info</button>
         <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={comments}>Comment</button>
         
@@ -85,7 +92,8 @@ const Home=()=>{
 
         <div className="login">
           <div className="loginmodal">
-          <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto',color:'blueviolet'}}>Login</h2>
+          <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto',color:'blueviolet'}}>Login</h2> <br/>
+          <p style={{fontSize:'20px'}}>{para}</p>
             <form onSubmit={Loginuser}>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' name='loginemail' value={loginemail} placeholder="enter email" required style={{height:'30px'}} onChange={(e)=>{setLoginemail(e.target.value)}}/>
               <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" name='loginpassword' value={loginpassword} required style={{height:'30px'}} onChange={(e)=>{setLoginpassword(e.target.value)}}/>
