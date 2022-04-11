@@ -35,7 +35,7 @@ const Animeform=()=>{
                 <input type="text" name='animation_name' placeholder='Animation Name' value={animation_name} onChange={e=>{setNewanimation(e.target.value)}} required/> 
                 <label>Author:</label>
                 <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>{setAuthor(e.target.value)}} required/> 
-                <label>Review:</label>
+                <label>Review: </label>
                 <textarea name='review' placeholder=" was good" value={review} onChange={e=>{setReview(e.target.value)}} required /> 
                </p>
                 <Footer/>
