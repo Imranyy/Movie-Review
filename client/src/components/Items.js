@@ -29,8 +29,8 @@ const Items=()=>{
       }
     return(
      <div>
-          <Link to='/submitpage' style={{float:'right',marginRight:'13%', marginTop:'-50px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
-          <Link to='/' style={{marginTop:'-50px',marginRight:'3%',float:'right'}}><button className='btn'>Home</button></Link>
+          <Link to='/submitpage' style={{float:'right',marginRight:'8%', marginTop:'-15px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
+          <Link to='/' style={{marginTop:'-15px',marginRight:'3%',float:'right'}}><button className='btn'>Home</button></Link>
           <div className="splash" onClick={enter} style={{height:'150%'}}>
             <i className="material-icons rotate" style={{fontSize:'2000%',margin:'20% 50% 20% 40%',borderRadius:'100px',color:'white'}}>theater_comedy</i>
         </div>

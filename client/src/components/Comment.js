@@ -21,7 +21,7 @@ const Comment=()=>{
       }
     return(
      <div>
-          <Link to='/' style={{marginTop:'-50px',marginRight:'3%',float:'right'}}><button className='btn'>Home</button></Link>
+          <Link to='/' style={{marginTop:'-15px',marginRight:'3%',float:'right'}}><button className='btn'>Home</button></Link>
           <h2 style={{borderBottom:'solid 1px grey', margin:'4% 20% 0 19%'}}>Comments</h2>
           <div className="splash" onClick={enter} style={{height:'150%'}}>
             <i className="material-icons rotate" style={{fontSize:'2000%',margin:'20% 50% 20% 40%',borderRadius:'100px',color:'white'}}>theater_comedy</i>

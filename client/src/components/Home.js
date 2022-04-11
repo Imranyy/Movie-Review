@@ -74,10 +74,10 @@ const Home=()=>{
     
     return(
         <div style={{textAlign:'center',alignItems:'center',zIndex:'0'}}>
-      <Header title1="Movies Site"/>
+      <Header title1="Movies Site"/> <div className="btnflex">
        <button className="btn" style={{marginRight:'10%', marginTop:'-90px'}} onClick={info}>info</button>
         <button className="btn" style={{marginRight:'1%', marginTop:'-90px'}} onClick={comments}>Comment</button>
-        
+        </div>
      
         <div className="comment">
           <div className="commentmodal">
@@ -118,7 +118,7 @@ const Home=()=>{
             <div className="part2">
               <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto'}}>About Me</h2>
               <p>I go by the name <em><strong>Ringside</strong></em>, the creator of this site. You can reach me by either the following:</p>
-              <div style={{display:'flex',justifyContent:'space-around', marginTop:'-10px'}}>
+              <div className='mdol' style={{display:'flex',justifyContent:'space-around', marginTop:'-10px'}}>
                 <div><h4>Whatsapp:0754423664</h4><br/><a href="https://wa.me/+254754423664"><i className="material-icons" style={{marginTop:'-100px',color:'green',cursor:'pointer'}}>whatsapp</i></a></div>
                 <div><h4>Email: imranmat245@gmail.com</h4><br/><i class="material-icons" style={{marginTop:'-100px', color:'blue'}}>email</i></div>
                 <div><h4>instagram: imrany</h4><br/><i className="material-icons" style={{marginTop:'-100px', color:'red'}}>chat</i></div>
