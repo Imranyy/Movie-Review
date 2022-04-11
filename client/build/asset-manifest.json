@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.24574d0a.css",
+    "main.js": "/static/js/main.197f4cb2.js",
+    "static/media/Perspective Drawing for Beginners.mp4 - VLC media player 4_1_2022 8_59_38 AM.png": "/static/media/Perspective Drawing for Beginners.mp4 - VLC media player 4_1_2022 8_59_38 AM.6ac347f1c096e8639d6d.png",
+    "index.html": "/index.html",
+    "main.24574d0a.css.map": "/static/css/main.24574d0a.css.map",
+    "main.197f4cb2.js.map": "/static/js/main.197f4cb2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24574d0a.css",
+    "static/js/main.197f4cb2.js"
+  ]
+}
