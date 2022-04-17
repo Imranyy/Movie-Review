@@ -120,6 +120,7 @@ textarea{
 }
 .splash{
   margin-top: -140px;
+  padding: 55% 35%;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -176,11 +177,7 @@ textarea{
   box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
   text-align: center;
 }
-.btnflex{
-  display: flex;
- float: right;
- margin-top:2%;
-}
+
 .comment{
   margin-top: -140px;
   width: 100%;
@@ -204,23 +201,3 @@ textarea{
   text-align: center;
 }
 
-@media all and (max-width:700px){
-  .modal{
-    margin-top: 20%;
-    height:34%;
-    width: 70%;
-  }
-  .mdol{
-   display: flex;
-   margin: 0 5% 0 5%;
-  }
-  .btnflex{
-     display: flex;
-    float: right;
-    margin-top:3%;
-  }
-  .splash{
-   padding:150px 2000px 0 1px;
-  }
-  
-}

@@ -28,20 +28,25 @@ const Items=()=>{
         splash.classList.add('close');
       }
     return(
-     <div>
-          <Link to='/submitpage' style={{float:'right',marginRight:'8%', marginTop:'-15px'}}><button className="btn" style={{fontSize:'15px'}}>Add Review</button></Link>
-          <Link to='/' style={{marginTop:'-15px',marginRight:'3%',float:'right'}}><button className='btn'>Home</button></Link>
-          <div className="splash" onClick={enter} style={{height:'150%'}}>
-            <i className="material-icons rotate" style={{fontSize:'2000%',margin:'20% 50% 20% 40%',borderRadius:'100px',color:'white'}}>theater_comedy</i>
-        </div>
+      <div class="section no-pad-bot" id="index-banner">
+      <div className="splash" onClick={enter} style={{height:'150%'}}>
+          <div className="container white-text">
+             <i className="material-icons rotate large" style={{fontSize:'1500%'}}>theater_comedy</i>
+          </div> 
+       </div>
+    <div class="container"> 
+         <Link to='/submitpage'><button className="btn-small waves-effect waves-light orange right" style={{fontSize:'15px'}}>Add Review</button></Link>
+         <Link to='/'><button className="btn-small waves-effect waves-light orange ">Home</button></Link>
+         
            {user && user.map((review)=>(
-                <article style={{margin:'5% 20%',}} key={review.id}>
-                  <h2 style={{margin:'11% auto'}}>{para}</h2>
-                    <h2 style={{borderBottom:'solid 1px grey'}}>{review.serie_name}</h2>
+                <article className="container" key={review.id}>
+                  <h5 style={{margin:'11% auto'}}>{para}</h5>
+                    <h5 style={{borderBottom:'solid 1px grey'}}>{review.serie_name}</h5>
                     <p>Reviewed by: <i style={{color:'green'}}>{review.author}</i></p>
                 <div>Review: {review.review}</div>
                 </article>
            ))};
+        </div>
         </div>
     );
 }
