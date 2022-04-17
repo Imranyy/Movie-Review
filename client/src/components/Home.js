@@ -77,7 +77,7 @@
       
       return(
         <div style={{zIndex:'0'}}>
-        <Header/>
+        <Header/><br/>
           <div className="comment">
             <div className="commentmodal">
               <form  onSubmit={addcomment}>

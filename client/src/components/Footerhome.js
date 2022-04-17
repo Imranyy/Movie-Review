@@ -15,9 +15,9 @@ return(
         <div class="col l6 s12">
           <h5 class="white-text">Addresses</h5>
           <ul>
-            <li>Whatsapp:0754423664 <a className="white-text" href="https://wa.me/+254754423664" target='_blank' rel="norefferer"><i className="material-icons" style={{color:'white', cursor:'pointer'}}>whatsapp</i></a></li>
-            <li>Email: imranmat245@gmail.com  <i className="material-icons" style={{color:'white', cursor:'pointer'}}>email</i></li>
-            <li>instagram: imrany   <i className="material-icons" style={{color:'white', cursor:'pointer'}}>chat</i></li>
+            <li><a className="white-text" href="https://wa.me/+254754423664" target='_blank' rel="norefferer"><i className="material-icons" style={{color:'white',marginBottom:'10px', cursor:'pointer'}}>whatsapp</i></a> :0754423664</li>
+            <li><i className="material-icons" style={{color:'white',marginBottom:'10px', cursor:'pointer'}}>email</i> : imranmat245@gmail.com </li>
+            <li><i className="material-icons" style={{color:'white',marginBottom:'10px',cursor:'pointer'}}>chat</i> instagram: imrany</li>
     
           </ul>
         </div>

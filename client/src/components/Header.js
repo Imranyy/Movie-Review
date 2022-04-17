@@ -13,7 +13,7 @@ const Header= ()=>{
         <li><button  onClick={info}>info</button></li>
         <li><button  onClick={comments}>Comment</button></li>
       </ul>
-      <i className='material-icons right hide-on-med-and-up'>email</i>
+      <i className='material-icons right hide-on-med-and-up' style={{fontSize:'50px'}}>theater_comedy</i>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav> 
