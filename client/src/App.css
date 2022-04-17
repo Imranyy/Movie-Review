@@ -224,9 +224,6 @@ textarea{
 }
 
 @media all and (max-width:700px){
-  body{
-    background-color: #12a7af;
-  }
   .modal{
     margin-top: 20%;
     height:34%;
@@ -242,7 +239,7 @@ textarea{
     margin-top:3%;
   }
   .splash{
-   padding:40% 0% 100% 0%;
+   padding:150px 2000px 0 1px;
   }
   
 }
