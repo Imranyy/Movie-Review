@@ -1,21 +1,23 @@
-const Header= ({title,title1,hr})=>{
+import {info,comments} from './Home'
+const Header= ()=>{
+      
     return(
-    <>
-    <h1 style={{marginLeft:'200px', marginBottom:'-20px'}}>{title}</h1>
-    <h1>{title1}</h1>
-    <p style={{borderBottom:'1px solid grey'}}>{hr}</p>
-    </>
+      <nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><h5 id="logo-container" class="brand-logo hide-on-med-and-down teal-gray">Movie Site</h5>
+      <ul class="right hide-on-med-and-down">
+        <li><button onClick={info}>info</button></li>
+        <li><button onClick={comments}>Comment</button></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><button  onClick={info}>info</button></li>
+        <li><button  onClick={comments}>Comment</button></li>
+      </ul>
+      <i className='material-icons right hide-on-med-and-up'>email</i>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> 
     );
 }
 
 export default Header;
-/*
- import React from "react";
-class Header extends React.Component{
-    render(){
-        return(
-            <h1>Movies</h1>
-        );
-    }
-}
-export default Header;*/

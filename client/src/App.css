@@ -12,21 +12,6 @@ code {
     monospace;
 }
 
-.App {
-  text-align: center;
-  flex-direction: column;
-}
-.App-header {
-  
-  /*min-height: 100vh;
-  display: flex;
-  flex-direction: column;*/
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #282c34;
-}
-
 button {
   color: #61dafb;
   background-color: #282c34;
