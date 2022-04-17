@@ -1,5 +1,4 @@
 
-import Header from '../Header';
 import Footer from '../Footer';
 import { useState } from 'react';
 import Footerhome from '../Footerhome';
@@ -26,21 +25,21 @@ const Animeform=()=>{
             navigate('/animationlist');
         }
         return(
-            <div className="App">
-            <header className="App-header">
-            <button className='btn' onClick={back} style={{float:'right',marginRight:'20px',marginTop:'-25px'}}>Back</button>
-             <Header title="Add Review"/>
+            <div className="section no-pad-bot" id="index-banner">
+            <button onClick={back} class="btn-small waves-effect waves-light orange right">Back</button><br/><br/>
+           <div className='container'>
+              
               <form onSubmit={onSubmit}>
-                 <p><label>Animation Name:</label>
+                 <p><h5 className='header'>Animation Name:</h5>
                 <input type="text" name='animation_name' placeholder='Animation Name' value={animation_name} onChange={e=>{setNewanimation(e.target.value)}} required/> 
-                <label>Author:</label>
+                <h5 className='header'>Author:</h5>
                 <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>{setAuthor(e.target.value)}} required/> 
-                <label>Review: </label>
-                <textarea name='review' placeholder=" was good" value={review} onChange={e=>{setReview(e.target.value)}} required /> 
+                <h5 className='header'>Review: </h5>
+                <textarea name='review' placeholder=" write your review" value={review} onChange={e=>{setReview(e.target.value)}} required /> 
                </p>
                 <Footer/>
                 </form>
-                </header>  
+                </div> <br/><br/><br/><br/> 
                 <Footerhome/>
                 </div>
     

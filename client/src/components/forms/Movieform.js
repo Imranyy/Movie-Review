@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import Header from '../Header';
 import Footer from '../Footer';
 import Footerhome from '../Footerhome';
 import { useNavigate } from 'react-router-dom';
@@ -27,21 +26,21 @@ const Movieform=()=>{
             navigate('/movielist');
         }
         return(
-            <div className="App">
-            <header className="App-header">
-            <button className='btn' onClick={back} style={{float:'right',marginRight:'20px',marginTop:'-25px'}}>Back</button>
-             <Header title="Add Review"/>
+            <div className="section no-pad-bot" id="index-banner">
+            <button onClick={back} class="btn-small waves-effect waves-light orange right">Back</button><br/><br/>
+           <div className='container'>
+              
               <form onSubmit={onSubmit}>
-                 <p><label>Movie Name:</label>
+                 <p><h5 className='header'>Movie Name:</h5>
                 <input type="text" name='movie_name' placeholder='Movie Name' value={movie_name} onChange={e=>{setMovie(e.target.value)}} required/> 
-                <label>Author:</label>
+                <h5 className='header'>Author:</h5>
                 <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>{setAuthor(e.target.value)}} required/> 
-                <label>Movie Review:</label>
-                <textarea name='review' placeholder=" was good" value={review} onChange={e=>{setReview(e.target.value)}} required /> 
+                <h5 className='header'>Movie Review:</h5>
+                <textarea name='review' placeholder=" write your review" value={review} onChange={e=>{setReview(e.target.value)}} required /> 
                </p>
                 <Footer/>
                 </form>
-                </header>  
+                </div> <br/><br/><br/><br/>
                 <Footerhome/>
                 </div>
     

@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import './components/Materializecss';
 import './App.css';
 import Home from './components/Home';
 import Notfound from './components/Notfound';

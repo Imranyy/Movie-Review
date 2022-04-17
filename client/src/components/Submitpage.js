@@ -1,6 +1,5 @@
 
 import React,{useState} from 'react';
-import Header from './Header';
 import Footer from './Footer';
 import Footerhome from './Footerhome';
 import { useNavigate } from 'react-router-dom';
@@ -29,21 +28,21 @@ const Submitpage=()=>{
     }
    
     return(
-        <div className="App">
-        <header className="App-header">
-        <button className='btn' onClick={back} style={{float:'right',marginRight:'20px',marginTop:'-25px'}}>Back</button>
-         <Header title="Add Review"/>
+        <div className="section no-pad-bot" id="index-banner">
+            <button onClick={back} class="btn-small waves-effect waves-light orange right">Back</button><br/><br/>
+           <div className='container'>
+              
           <form onSubmit={onSubmit}>
-             <p><label>Tv show/Series:</label>
+             <p><h5 className='header'>Tv show/Series:</h5>
             <input type="text" name='serie_name' placeholder='Tv show /series' value={serie_name} onChange={e=>{setSerie(e.target.value)}} required/> 
-            <label>Author:</label>
+            <h5 className='header'>Author:</h5>
             <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>setAuthor(e.target.value)} required/> 
-            <label>Review:</label>
-            <textarea name='review' placeholder=" was good" value={review} onChange={e=>setReview(e.target.value)} required /> 
+            <h5 className='header'>Review:</h5>
+            <textarea name='review' placeholder=" write your review" value={review} onChange={e=>setReview(e.target.value)} required /> 
            </p>
             <Footer/>
             </form>
-            </header>  
+            </div> <br/><br/><br/><br/>  
             <Footerhome/>
             </div>
 

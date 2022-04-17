@@ -37,13 +37,9 @@ p input{
   font-size: large;
   font-family: 'Courier New', Courier, monospace;
 }
-p label{
-  margin-left: 25px;
-}
 textarea{
-  width: 40%;
-  height:70px;
-  border-radius: 10px;
+  height:100px;
+  border-radius: 5px;
   font-size: large;
   font-family: 'Courier New', Courier, monospace;
 }
