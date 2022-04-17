@@ -1,6 +1,7 @@
 import {info,comments} from './Home'
+import './Materializecss';
 const Header= ()=>{
-      
+    
     return(
       <nav class="orange lighten-1" role="navigation">
     <div class="nav-wrapper container"><h5 id="logo-container" class="brand-logo hide-on-med-and-down teal-gray">Movie Site</h5>
@@ -18,6 +19,6 @@ const Header= ()=>{
     </div>
   </nav> 
     );
-}
+} 
 
 export default Header;
