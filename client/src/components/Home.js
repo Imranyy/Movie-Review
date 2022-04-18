@@ -1,7 +1,6 @@
   import Header from "./Header"
   import { Link, useNavigate } from "react-router-dom";
   import Footerhome from "./Footerhome";
-  import Button from '@mui/material/Button'
   import { useState } from "react";
   import { db, auth } from "../FirebaseConfig/Fireconfig";
   import { collection,addDoc } from "firebase/firestore";
@@ -49,7 +48,7 @@
       const closecomment=()=>{
         const close=document.querySelector('.comment.open')
         close.classList.remove('open')
-      }
+        }
       const userCollectionRef=collection(db,"comments");
       const [email,setEmail]=useState('');
       const [comment,setComment]=useState('');
@@ -82,48 +81,48 @@
             <div className="commentmodal">
               <form  onSubmit={addcomment}>
                 <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' name="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="enter email" required style={{height:'30px'}}/>
-                <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea name="comment" value={comment} onChange={(e)=>{setComment(e.target.value)}} placeholder="your comment on the website" required style={{height:'70%',width:'100%'}}/>
-                <Button type="submit" variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
+                <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>send</i><textarea name="comment" value={comment} onChange={(e)=>{setComment(e.target.value)}} placeholder="your comment on the website" required style={{height:'100%',width:'100%'}}/>
+                <button className="btn-small waves-effect waves-light orange" style={{marginTop:'60px'}} >Submit</button>
               </form>
-              <Button onClick={closecomment} style={{float:'right',marginTop:'-11%', cursor:'pointer'}}> Close</Button>
+              <button className="btn-small waves-effect waves-light orange" onClick={closecomment} style={{marginTop:'-34px',float:'right'}}> Close</button>
             </div>
           </div>
 
           <div className="login">
             <div className="loginmodal">
-            <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto',color:'blueviolet'}}>Login</h2> <br/>
+            <h5 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto',color:'blueviolet'}}>Login</h5> <br/>
             <p style={{fontSize:'20px'}}>{para}</p>
               <form onSubmit={Loginuser}>
                 <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>email</i><input type='text' name='loginemail' value={loginemail} placeholder="enter email" required style={{height:'30px'}} onChange={(e)=>{setLoginemail(e.target.value)}}/>
                 <i className="material-icons" style={{marginLeft:'-90%',fontSize:'200%'}}>security</i><input type='password' placeholder="enter password" name='loginpassword' value={loginpassword} required style={{height:'30px'}} onChange={(e)=>{setLoginpassword(e.target.value)}}/>
-                <Button type="submit"  variant='outlined' style={{margin:'5% auto'}}>Submit</Button>
+                <button className="btn-small waves-effect waves-light orange left" type="submit" style={{marginTop:'40px'}}>Submit</button>
               </form>
-              <Button color='primary' onClick={closelogin} style={{float:'right',marginTop:'-10%', cursor:'pointer'}}> Close</Button>
+              <button className="btn-small waves-effect waves-light orange right" onClick={closelogin} style={{marginTop:'-35px'}}> Close</button>
             </div>
           </div>
 
           
 
           <div className="aboutme" >
-            <div className="modal">
+            <div className="modal1">
               <div className="part1">
               <h2 style={{marginTop:'-10px'}}>Info:</h2>
               <p style={{fontFamily:'consolas,Arial'}}>
                 This is a site for movie and series lovers. In here, you can review your favorites' and recommend it to other, you can also checkout best watched movies and 
                 series from this site. This site focuses on builting a community of movie enthusiastic people, bring them together while sharing movies and series.
               </p>
-              <button className="btn" onClick={next}>Next</button>
+              <button className="btn-small waves-effect waves-light orange" onClick={next}>Next</button>
               </div>
               <div className="part2">
-                <h2 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto'}}>About Me</h2>
+                <h5 style={{borderBottom:'1px solid gray',width:'30%',margin:'0 auto'}}>About Me</h5>
                 <p>I go by the name <em><strong>Ringside</strong></em>, the creator of this site. You can reach me by either the following:</p>
                 <div className='mdol' style={{display:'flex',justifyContent:'space-around', marginTop:'-10px'}}>
-                  <div><h4>Whatsapp:0754423664</h4><br/><a href="https://wa.me/+254754423664"><i className="material-icons" style={{marginTop:'-100px',color:'green',cursor:'pointer'}}>whatsapp</i></a></div>
-                  <div><h4>Email: imranmat245@gmail.com</h4><br/><i class="material-icons" style={{marginTop:'-100px', color:'blue'}}>email</i></div>
-                  <div><h4>instagram: imrany</h4><br/><i className="material-icons" style={{marginTop:'-100px', color:'red'}}>chat</i></div>
+                  <div><h6 className="light">Whatsapp:0754423664</h6><br/><a href="https://wa.me/+254754423664"><i className="material-icons" style={{marginTop:'-100px',color:'green',cursor:'pointer'}}>whatsapp</i></a></div>
+                  <div><h6 className="light">Email: imranmat245@gmail.com</h6><br/><i class="material-icons" style={{marginTop:'-100px', color:'blue'}}>email</i></div>
+                  <div><h6 className="light">instagram: imrany</h6><br/><i className="material-icons" style={{marginTop:'-100px', color:'red'}}>chat</i></div>
                 </div>
-                <button className="btn" onClick={login} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto',float:'left'}}>Staff Only<i className="material-icons" style={{fontSize:'12px'}}>admin_panel_settings</i></button>
-                <button className="btn" onClick={start} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto'}}>Leave</button>
+                <button className="btn-small waves-effect waves-light orange" onClick={login} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto',float:'left'}}>Staff Only<i className="material-icons right" >admin_panel_settings</i></button>
+                <button className="btn-small waves-effect waves-light orange right" onClick={start} style={{height:'30px', marginBottom:'10px',fontSize:'15px', padding:'0 auto'}}>Leave</button>
               </div>
 
             </div>
