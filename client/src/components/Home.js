@@ -88,7 +88,6 @@
               <Button onClick={closecomment} style={{float:'right',marginTop:'-11%', cursor:'pointer'}}> Close</Button>
             </div>
           </div>
-          
 
           <div className="login">
             <div className="loginmodal">

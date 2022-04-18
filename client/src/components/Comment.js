@@ -26,10 +26,10 @@ const Comment=()=>{
              <i className="material-icons rotate large" style={{fontSize:'1500%'}}>theater_comedy</i>
           </div> 
        </div>
-    <div class="container"> 
-          <Link to='/'><button className="btn-small waves-effect waves-light orange ">Home</button></Link>
-           <h2 style={{borderBottom:'solid 1px grey', margin:'4% 20% 0 19%'}}>Comments</h2>
-          
+    <div class="container">
+         <Link to='/'><button className="btn-small waves-effect waves-light orange ">Home</button></Link>
+         <h2 style={{borderBottom:'solid 1px grey', margin:'4% 20% 0 19%'}}>Comments</h2>
+         
            {user && user.map((review)=>(
                 <article style={{margin:'3% 20%',padding:'0 0 0 15px',height:'150px',borderRadius:'5px',boxShadow: '1px 3px 5px rgba(0,0,0,0.1)'}}>
                     <p>Sent by: <i style={{color:'green'}}>{review.email}</i></p>
