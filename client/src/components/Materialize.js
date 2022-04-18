@@ -63,7 +63,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       fn();
     } else {
       doc.addEventListener("DOMContentLoaded", fn);
-    }
+    } 
   }
 
   function Init(selector, context) {
