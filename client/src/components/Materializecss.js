@@ -1,4 +1,4 @@
-import M  from "./Materialize";
+import M  from "@mui/material/Materialize";
 
 document.addEventListener('click', function(){
 //nav menu
