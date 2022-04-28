@@ -77,7 +77,7 @@
       
       return(
         <div style={{zIndex:'0'}}>
-        <Header/><br/><br/><br/><br/>
+        <Header/><br/><br/><br/>
           <div className="comment">
             <div className="commentmodal">
               <form  onSubmit={addcomment}>
@@ -129,25 +129,58 @@
             </div>
           </div>
 
-              <div style={{margin:'auto', fontFamily:'consolas,arial',marginBottom:'10%'}}>
+              <div className="container">
             
-              <Link to={`/movielist`} style={{textDecoration:'none'}}>
-              <div className="movie">
-                  <h2 style={{margin:'0 30% 0 10%'}}>: Movies</h2> 
+              <div className="card">
+              <div className="card-image waves-effect waves-block waves-light">
+                <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/download%20(4).jpg?alt=media&token=56875129-4143-41f5-8c11-ea7343de1b8d" className="activator" alt="Cartoon pic"/>
+              </div>
+              <div className="card-content">
+                <span className="card-title activator grey-text text-darken-4">Movie page <i className="material-icons right">more_vert</i></span>
+                <p><Link to={`/movielist`} style={{textDecoration:'none'}}>
+                  <p>CLICK ME</p> 
+                   </Link></p>
+                   </div>
+                 <div className="card-reveal">
+                <span className="card-title grey-text text-darken-4">More info:<i className="material-icons right">close</i></span>
+                <p>This is the link opens the movies section of the site...You can view other peoples' moview reviews ...and also you can add your own reviews... be free</p>
+              </div>
             </div>
-            </Link>
             
-            <Link to={`/serielist`} style={{textDecoration:'none'}}>
-              <div className="movie">
-                  <h2 style={{margin:'0 30% 0 23%'}}>: Tv shows /Series</h2> 
-            </div>
-            </Link>
             
-            <Link to={`/animationlist`} style={{textDecoration:'none'}}>
-              <div className="movie">
-                  <h2 style={{margin:'0 30% 0 15%'}}>: Animations</h2> 
+            <div className="card">
+              <div className="card-image waves-effect waves-block waves-light">
+                <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/Scorpion-8.jpg?alt=media&token=db321ea7-fdb3-4ad8-8b74-344c648a8f9e" className="activator" alt="Cartoon pic"/>
+              </div>
+              <div className="card-content">
+                <span className="card-title activator grey-text text-darken-4"> TV shows /Series page <i className="material-icons right">more_vert</i></span>
+                <p><Link to={`/serielist`} style={{textDecoration:'none'}}>
+                  <p>CLICK ME</p> 
+                   </Link></p>
+                   </div>
+                 <div className="card-reveal">
+                <span className="card-title grey-text text-darken-4">More info: <i className="material-icons right">close</i></span>
+                <p>This is the link opens the TV show & series section of the website..View other peoples' reviews ...and also you can add your reviews ..be free</p>
+              </div>
             </div>
-            </Link>
+            
+            
+            <div className="card">
+              <div className="card-image waves-effect waves-block waves-light">
+                <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/_114896031_screenshot-1372.png?alt=media&token=ca7ddf12-73fa-4ef9-99d8-02ee348bd11b" className="activator" alt="Cartoon pic"/>
+              </div>
+              <div className="card-content">
+                <span className="card-title activator grey-text text-darken-4">Animation page <i className="material-icons right">more_vert</i></span>
+                <p><Link to={`/animationlist`} style={{textDecoration:'none'}}>
+                  <p>CLICK ME</p> 
+                   </Link></p>
+                   </div>
+                 <div className="card-reveal">
+                <span className="card-title grey-text text-darken-4">More info: <i className="material-icons right">close</i></span>
+                <p>This is the link opens the Animation section of the Website..View other peoples' reviews ...and also you can add your reviews ..be free</p>
+              </div>
+            </div>
+
           </div>
           <Footerhome/>
           </div>
