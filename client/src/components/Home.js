@@ -5,7 +5,7 @@
   import { db, auth } from "../FirebaseConfig/Fireconfig";
   import { collection,addDoc } from "firebase/firestore";
   import {signInWithEmailAndPassword} from 'firebase/auth';
-  import img from './Img.png'
+ 
   
    //comment
    export const comments=()=>{
@@ -134,22 +134,19 @@
               <Link to={`/movielist`} style={{textDecoration:'none'}}>
               <div className="movie">
                   <h2 style={{margin:'0 30% 0 10%'}}>: Movies</h2> 
-                  <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/Perspective%20Drawing%20for%20Beginners.mp4%20-%20VLC%20media%20player%204_1_2022%208_59_38%20AM.png?alt=media&token=657ddd14-c213-4f8a-8ed3-f6264d1411d3.com" alt="a cartoon"/>
             </div>
             </Link>
             
             <Link to={`/serielist`} style={{textDecoration:'none'}}>
               <div className="movie">
                   <h2 style={{margin:'0 30% 0 23%'}}>: Tv shows /Series</h2> 
-                  <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/Perspective%20Drawing%20for%20Beginners.mp4%20-%20VLC%20media%20player%204_1_2022%208_59_38%20AM.png?alt=media&token=657ddd14-c213-4f8a-8ed3-f6264d1411d3.com" alt="a cartoon"/>
             </div>
             </Link>
             
             <Link to={`/animationlist`} style={{textDecoration:'none'}}>
-              <img src={img} alt="a cartoon" className="movie"/>
+              <div className="movie">
                   <h2 style={{margin:'0 30% 0 15%'}}>: Animations</h2> 
-                  
-            
+            </div>
             </Link>
           </div>
           <Footerhome/>
