@@ -26,17 +26,23 @@ const Animation=()=>{
            </div> 
         </div>
      <div class="container"> 
-          <Link to='/animeform'><button className="btn-small waves-effect waves-light orange right" style={{fontSize:'15px'}}>Add Review</button></Link>
+          {/*<Link to='/animeform'><button className="btn-small waves-effect waves-light orange right" style={{fontSize:'15px'}}>Add Review</button></Link>*/}
+          <div className="chip orange right white-text" >Add review<div className="material-icons" style={{fontSize:'25px'}}>not_interested</div></div>
           <Link to='/'><button className="btn-small waves-effect waves-light orange ">Home</button></Link>
-          
           
            {user && user.map((review)=>(
                 <article className='container'>
-                    <h5 style={{borderBottom:'solid 1px grey'}}>{review.animation_name}</h5>
+                  <div className="card">
+                    <h5 className='orange-text text-darken-5'>{review.animation_name}</h5>
+                    <div className="card-image">
+                    <iframe width="100%" height="315" src={review.animation_trailer}></iframe>
+                    </div>
+                    <div className="card-content">
                     <p>Reviewed by: <i style={{color:'green'}}>{review.author}</i></p>
-                <div>Review: {review.review}</div>
+                <div>Review: {review.review}</div></div>
+                </div>
                 </article>
-           ))};
+           ))}
            </div>
         </div>
     );

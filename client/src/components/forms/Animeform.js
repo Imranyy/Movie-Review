@@ -10,6 +10,7 @@ const Animeform=()=>{
     const userCollectionRef=collection(db,"animation");
         const navigate=useNavigate();
         const [animation_name,setNewanimation] =useState('')
+        const [animation_trailer,setNewanimationtrailer] =useState('')
         const [review,setReview] =useState('')
         const [author,setAuthor] =useState('')
        
@@ -18,7 +19,7 @@ const Animeform=()=>{
             e.preventDefault();
             alert('Your Review was Sent');
             navigate('/animationlist')
-            await addDoc(userCollectionRef,{animation_name,review,author});
+            await addDoc(userCollectionRef,{animation_name,review,author,animation_trailer});
           
         }
         const back=()=>{
@@ -32,6 +33,8 @@ const Animeform=()=>{
               <form onSubmit={onSubmit}>
                  <p><h5 className='header'>Animation Name:</h5>
                 <input type="text" name='animation_name' placeholder='Animation Name' value={animation_name} onChange={e=>{setNewanimation(e.target.value)}} required/> 
+                <h5 className='header'>Youtube trailer Link:</h5>
+                <input type="text" name='animation_trailer' placeholder='(https://www.youtube.com/embed/adEwlFHLWd4)' value={animation_trailer} onChange={e=>{setNewanimationtrailer(e.target.value)}} required/> 
                 <h5 className='header'>Author:</h5>
                 <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>{setAuthor(e.target.value)}} required/> 
                 <h5 className='header'>Review: </h5>

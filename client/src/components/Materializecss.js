@@ -8,4 +8,6 @@ M.Sidenav.init(menu, {edge:'left'});
 const elems = document.querySelectorAll('.carousel.carousel-slider');
 M.Carousel.init(elems, {fullWidth: true,
     indicators: true});
+   
 }) 
+

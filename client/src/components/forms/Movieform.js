@@ -9,6 +9,7 @@ const Movieform=()=>{
     const userCollectionRef=collection(db,"post");
         const navigate=useNavigate();
         const [movie_name,setMovie] =useState('')
+        const [movie_trailer,setMovietrailer] =useState('')
         const [author,setAuthor] =useState('')
         const [review,setReview] =useState('')
     
@@ -19,7 +20,7 @@ const Movieform=()=>{
             e.preventDefault();
             alert('Your Review was Sent');
             navigate('/movielist')
-            await addDoc(userCollectionRef,{movie_name,review,author});
+            await addDoc(userCollectionRef,{movie_name,review,author,movie_trailer});
            
         }
         const back=()=>{
@@ -32,7 +33,9 @@ const Movieform=()=>{
               
               <form onSubmit={onSubmit}>
                  <p><h5 className='header'>Movie Name:</h5>
-                <input type="text" name='movie_name' placeholder='Movie Name' value={movie_name} onChange={e=>{setMovie(e.target.value)}} required/> 
+                <input type="text" name='movie_name' placeholder='Movie Name' value={movie_name} onChange={e=>{setMovie(e.target.value)}} required/>
+                <h5 className='header'>Youtube trailer Link:</h5> 
+                <input type="text" name='movie_trailer' placeholder="(https://www.youtube.com/embed/adEwlFHLWd4)" value={movie_trailer} onChange={e=>{setMovietrailer(e.target.value)}} required/> 
                 <h5 className='header'>Author:</h5>
                 <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>{setAuthor(e.target.value)}} required/> 
                 <h5 className='header'>Movie Review:</h5>

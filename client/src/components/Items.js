@@ -35,17 +35,25 @@ const Items=()=>{
           </div> 
        </div>
     <div class="container"> 
-         <Link to='/submitpage'><button className="btn-small waves-effect waves-light orange right" style={{fontSize:'15px'}}>Add Review</button></Link>
+         {/*<Link to='/submitpage'><button className="btn-small waves-effect waves-light orange right" style={{fontSize:'15px'}}>Add Review</button></Link>*/}
+         <div className="chip orange right white-text" >Add review<div className="material-icons" style={{fontSize:'25px'}}>not_interested</div></div>
          <Link to='/'><button className="btn-small waves-effect waves-light orange ">Home</button></Link>
          
            {user && user.map((review)=>(
                 <article className="container" key={review.id}>
+                   <div className="card">
                   <h5 style={{margin:'11% auto'}}>{para}</h5>
-                    <h5 style={{borderBottom:'solid 1px grey'}}>{review.serie_name}</h5>
+                    <h5 className='orange-text text-darken-5'>{review.serie_name}</h5>
+                    <div className='card-image'>
+                    <iframe width="100%" height="315" src={review.serie_trailer}></iframe>
+                    </div>
+                    <div className='card-content'>
                     <p>Reviewed by: <i style={{color:'green'}}>{review.author}</i></p>
                 <div>Review: {review.review}</div>
+                </div>
+                </div>
                 </article>
-           ))};
+           ))}
         </div>
         </div>
     );
