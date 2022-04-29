@@ -3,7 +3,7 @@ return(
   
     <div>
         
-  <footer className="page-footer teal">
+  <footer className="page-footer amber darken-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -25,7 +25,7 @@ return(
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://wa.me/+254754423664.com">Ringside</a>
+      Made by <a class="black-text text-lighten-5" href="http://wa.me/+254754423664.com">Ringside</a>
       </div>
     </div>
   </footer>

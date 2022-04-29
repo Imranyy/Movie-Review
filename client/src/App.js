@@ -13,7 +13,8 @@ import Movieform from './components/forms/Movieform'
 
 function App() {
   return (
-    <Router>    
+    <Router>  
+      <div className='amber lighten-5'> 
       <Routes>
         <Route path='/' exact element={<Home/>}/>
      <Route path='/submitpage' element={<Submitpage />}/>
@@ -25,6 +26,7 @@ function App() {
      <Route path='animeform' element={<Animeform/>}/>
      <Route path='*' element={<Notfound/>}/>
      </Routes>
+     </div> 
     </Router>  
   );
 }

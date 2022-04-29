@@ -6,7 +6,6 @@
   import { collection,addDoc } from "firebase/firestore";
   import {signInWithEmailAndPassword} from 'firebase/auth';
  
-  
    //comment
    export const comments=()=>{
     const comment=document.querySelector('.comment')
@@ -132,8 +131,8 @@
               <div className="container">
             
               <div className="card">
-              <div className="card-image waves-effect waves-block waves-light">
-                <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/download%20(4).jpg?alt=media&token=56875129-4143-41f5-8c11-ea7343de1b8d" className="activator" alt="Cartoon pic"/>
+              <div className="card-image">
+                <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/dolittle-universal-1080x793-5e1cc7ac93aa5-1.jpg?alt=media&token=6caf4579-f1a5-476e-b552-99a405129371" className="activator" alt="Cartoon pic"/>
               </div>
               <div className="card-content">
                 <span className="card-title activator grey-text text-darken-4">Movie page <i className="material-icons right">more_vert</i></span>
@@ -149,7 +148,7 @@
             
             
             <div className="card">
-              <div className="card-image waves-effect waves-block waves-light">
+              <div className="card-image">
                 <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/Scorpion-8.jpg?alt=media&token=db321ea7-fdb3-4ad8-8b74-344c648a8f9e" className="activator" alt="Cartoon pic"/>
               </div>
               <div className="card-content">
@@ -166,7 +165,7 @@
             
             
             <div className="card">
-              <div className="card-image waves-effect waves-block waves-light">
+              <div className="card-image">
                 <img src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/_114896031_screenshot-1372.png?alt=media&token=ca7ddf12-73fa-4ef9-99d8-02ee348bd11b" className="activator" alt="Cartoon pic"/>
               </div>
               <div className="card-content">
