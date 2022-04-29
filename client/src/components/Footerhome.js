@@ -8,7 +8,7 @@ return(
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Group info'</h5>
-          <p class="grey-text text-lighten-4">A platform for a community of equal-minded people and movie enthusiats . Be free to  added and view other peoples' reviews on different movies, series/tv shows and animation, they have watched.</p>
+          <p class="grey-text text-lighten-4">A platform for a community of equal-minded people and movie enthusiats . Be free to  added and view other peoples' reviews on different movies, series/tv shows and animation.</p>
 
 
         </div>

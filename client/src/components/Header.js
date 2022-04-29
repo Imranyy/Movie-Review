@@ -10,7 +10,7 @@ const Header= ()=>{
         <li><a class="grey-text" href="#!" onClick={comments}>Comment <i class="material-icons right black-text" >tiktok</i></a></li>
       </ul>
 
-      <ul id="nav-mobile" class="sidenav">
+      <ul id="nav-mobile" class="sidenav amber lighten-5">
         <li><a class="grey-text" href="#!" onClick={info}>Info <i class="material-icons right" style={{color:'black'}}>info</i></a></li>
         <li><a class="grey-text" href="#!" onClick={comments}>Comment <i class="material-icons right" style={{color:'black'}}>tiktok</i></a></li>
       </ul>
