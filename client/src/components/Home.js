@@ -1,11 +1,12 @@
   import Header from "./Header"
   import { Link, useNavigate } from "react-router-dom";
   import Footerhome from "./Footerhome";
-  import { useState } from "react";
+  import { useState, useEffect} from "react";
   import { db, auth } from "../FirebaseConfig/Fireconfig";
-  import { collection,addDoc } from "firebase/firestore";
+  import { collection,addDoc, getDocs } from "firebase/firestore";
   import {signInWithEmailAndPassword} from 'firebase/auth';
- 
+  import Button from '@mui/material/Button';
+  
    //comment
    export const comments=()=>{
     const comment=document.querySelector('.comment')
@@ -19,6 +20,57 @@
   }
 
   const Home=()=>{
+    const userCollectionRef1= collection(db,"commentmovie");
+    const userCollectionRef2= collection(db,"commentserie");
+    const userCollectionRef3=collection(db,"commentanime");
+
+//submit comment
+ const onsubmit1=async e=>{
+  e.preventDefault();
+  alert('comment was sent');
+  await addDoc(userCollectionRef1,{comment_movie})
+  window.location.reload();
+}
+const onsubmit2=async e=>{
+  e.preventDefault();
+  alert('comment was sent');
+  await addDoc(userCollectionRef2,{comment_serie});
+  window.location.reload();
+}
+const onsubmit3=async e=>{
+  e.preventDefault();
+  alert('comment was sent');
+  await addDoc(userCollectionRef3,{comment_anime});
+  window.location.reload();
+}
+
+    const [comment_movie,setComment_movie]=useState(null);
+    const [comment_movie1,setComment_movie1]=useState(null);
+    const [comment_serie,setComment_serie]=useState(null);
+    const [comment_serie1,setComment_serie1]=useState(null);
+    const [comment_anime,setComment_anime]=useState(null);
+    const [comment_anime1,setComment_anime1]=useState(null);
+  
+    
+    //fetch comments
+    useEffect(()=>{
+      const FetchReviews=async(e)=>{
+        const data=await getDocs(userCollectionRef1);
+          setComment_movie1(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+      };
+      const FetchReviews2=async(e)=>{
+        const data=await getDocs(userCollectionRef2);
+          setComment_serie1(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+      };
+      const FetchReviews3=async(e)=>{
+        const data=await getDocs(userCollectionRef3);
+          setComment_anime1(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+      };
+      FetchReviews3();
+      FetchReviews2();
+      FetchReviews();
+    },[]);
+
     const navigate=useNavigate();
       //closing modal start
       const start=()=>{
@@ -73,7 +125,7 @@
           navigate('/')
         }
       }
-      
+    
       return(
         <div style={{zIndex:'0'}}>
         <Header/><br/><br/><br/>
@@ -137,15 +189,26 @@
                 <img class="carousel-item" href="#three!" src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/spider-man-3-avengers-endgame.webp?alt=media&token=a6a25fb5-4c14-48a6-a32f-9ec4b21ccfaa" alt="Cartoon pic"/>         
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4">Movie page <i className="material-icons right">more_vert</i></span>
+                <span className="card-title grey-text text-darken-4">Movie page <div className="flow-text activator grey-text right" style={{fontSize:'55%'}}>View comments</div></span>
                 <p><Link to={`/movielist`} style={{textDecoration:'none'}}>
                   <p>CLICK ME</p> 
                    </Link></p>
                    </div>
                  <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4">More info:<i className="material-icons right">close</i></span>
-                <p>This is the link opens the movies section of the site...You can view other peoples' moview reviews ...and also you can add your own reviews... be free</p>
-              </div>
+                <span className="card-title grey-text text-darken-4">Comments:<i className="material-icons right">close</i></span>
+                {comment_movie1 && comment_movie1.map((commentm)=>(
+                  <p>>>> {commentm.comment_movie}</p>
+                ))}
+                 <div class="card-action" style={{bottom:'-19%'}}>
+              <form onSubmit={onsubmit1} >
+                     <div  >
+                     <input style={{width:'86%'}} type="text" name='comment_movie' value={comment_movie} onChange={e=>{setComment_movie(e.target.value)}} placeholder="Add a comment..." required/>
+                      <Button type='submit' color="primary" className="right activator" style={{width:'10%',marginRight:'-2%'}}>Post</Button>
+                     </div>
+                     </form>
+                </div>
+                </div>
+             
             </div>
             
             
@@ -156,15 +219,26 @@
                 <img class="carousel-item" href="#three!" src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/Suid-Game-Netflix-1200by667.jpg?alt=media&token=e7dd6883-b90c-4848-bf94-d2060af66a0e" alt="Cartoon pic"/>         
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4"> TV shows /Series page <i className="material-icons right">more_vert</i></span>
+                <span className="card-title activator grey-text text-darken-4"> TV shows /Series page <div className="flow-text activator grey-text right" style={{fontSize:'55%'}}>View comments</div></span>
                 <p><Link to={`/serielist`} style={{textDecoration:'none'}}>
                   <p>CLICK ME</p> 
                    </Link></p>
                    </div>
                  <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4">More info: <i className="material-icons right">close</i></span>
-                <p>This is the link opens the TV show & series section of the website..View other peoples' reviews ...and also you can add your reviews ..be free</p>
-              </div>
+                <span className="card-title grey-text text-darken-4">Comments: <i className="material-icons right">close</i></span>
+                {comment_serie1 && comment_serie1.map((comments)=>(
+                  <p>>>> {comments.comment_serie}</p>
+                ))}
+                <div class="card-action" style={{bottom:'-19%'}}>
+              <form onSubmit={onsubmit2} >
+                     <div>
+                     <input style={{width:'86%'}} type="text" name='comment_serie' value={comment_serie} onChange={e=>{setComment_serie(e.target.value)}} placeholder="Add a comment..." required/>
+                      <Button type='submit' color="primary" className="right activator" style={{width:'10%',marginRight:'-2%'}}>Post</Button>
+                     </div>
+                     </form>
+                </div>
+                </div>
+              
             </div>
             
             
@@ -175,15 +249,26 @@
                 <img class="carousel-item" href="#three!" src="https://firebasestorage.googleapis.com/v0/b/movie-app-62211.appspot.com/o/moana_review_0.webp?alt=media&token=ac8e9ea8-7ba2-42f8-ad6d-d26b733b471d" alt="Cartoon pic"/>         
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4">Animation page <i className="material-icons right">more_vert</i></span>
+                <span className="card-title activator grey-text text-darken-4">Animation page <div className="flow-text activator grey-text right" style={{fontSize:'55%'}}>View comments</div></span>
                 <p><Link to={`/animationlist`} style={{textDecoration:'none'}}>
                   <p>CLICK ME</p> 
                    </Link></p>
                    </div>
                  <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4">More info: <i className="material-icons right">close</i></span>
-                <p>This is the link opens the Animation section of the Website..View other peoples' reviews ...and also you can add your reviews ..be free</p>
-              </div>
+                <span className="card-title grey-text text-darken-4">Comments: <i className="material-icons right">close</i></span>
+                {comment_anime1 && comment_anime1.map((comment)=>(
+                  <p>>>> {comment.comment_anime}</p>
+                ))}
+                <div class="card-action" style={{bottom:'-19%'}} >
+                     <form onSubmit={onsubmit3} >
+                     <div>
+                     <input style={{width:'86%'}} type="text" name='comment_anime' value={comment_anime} onChange={e=>{setComment_anime(e.target.value)}} placeholder="Add a comment..." required/>
+                      <Button type='submit' value="Reload Page"  color="primary" className="right" style={{width:'10%',marginRight:'-2%'}}>Post</Button>
+                     </div>
+                     </form>
+               </div>
+                </div>
+              
             </div>
 
           </div>
