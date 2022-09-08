@@ -1,7 +1,6 @@
 
 import Footer from '../Footer';
 import { useState } from 'react';
-import Footerhome from '../Footerhome';
 import { useNavigate } from 'react-router-dom';
 import {db} from '../../FirebaseConfig/Fireconfig'
 import {collection,addDoc} from 'firebase/firestore'
@@ -42,8 +41,7 @@ const Animeform=()=>{
                </p>
                 <Footer/>
                 </form>
-                </div> <br/><br/><br/><br/> 
-                <Footerhome/>
+                </div> 
                 </div>
     
     );

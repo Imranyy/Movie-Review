@@ -20,26 +20,26 @@
   }
 
   const Home=()=>{
-    const userCollectionRef1= collection(db,"commentmovie");
-    const userCollectionRef2= collection(db,"commentserie");
-    const userCollectionRef3=collection(db,"commentanime");
 
 //submit comment
  const onsubmit1=async e=>{
   e.preventDefault();
   alert('comment was sent');
+  const userCollectionRef1= collection(db,"commentmovie");
   await addDoc(userCollectionRef1,{comment_movie})
   window.location.reload();
 }
 const onsubmit2=async e=>{
   e.preventDefault();
   alert('comment was sent');
+  const userCollectionRef2= collection(db,"commentserie");
   await addDoc(userCollectionRef2,{comment_serie});
   window.location.reload();
 }
 const onsubmit3=async e=>{
   e.preventDefault();
   alert('comment was sent');
+  const userCollectionRef3=collection(db,"commentanime");
   await addDoc(userCollectionRef3,{comment_anime});
   window.location.reload();
 }
@@ -55,14 +55,17 @@ const onsubmit3=async e=>{
     //fetch comments
     useEffect(()=>{
       const FetchReviews=async(e)=>{
+        const userCollectionRef1= collection(db,"commentmovie");
         const data=await getDocs(userCollectionRef1);
           setComment_movie1(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
       };
       const FetchReviews2=async(e)=>{
+        const userCollectionRef2= collection(db,"commentserie");
         const data=await getDocs(userCollectionRef2);
           setComment_serie1(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
       };
       const FetchReviews3=async(e)=>{
+        const userCollectionRef3=collection(db,"commentanime");
         const data=await getDocs(userCollectionRef3);
           setComment_anime1(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
       };
@@ -197,7 +200,7 @@ const onsubmit3=async e=>{
                  <div className="card-reveal">
                 <span className="card-title grey-text text-darken-4">Comments:<i className="material-icons right">close</i></span>
                 {comment_movie1 && comment_movie1.map((commentm)=>(
-                  <p>>>> {commentm.comment_movie}</p>
+                  <p> {commentm.comment_movie}</p>
                 ))}
                  <div class="card-action" style={{bottom:'-19%'}}>
               <form onSubmit={onsubmit1} >
@@ -227,7 +230,7 @@ const onsubmit3=async e=>{
                  <div className="card-reveal">
                 <span className="card-title grey-text text-darken-4">Comments: <i className="material-icons right">close</i></span>
                 {comment_serie1 && comment_serie1.map((comments)=>(
-                  <p>>>> {comments.comment_serie}</p>
+                  <p>{comments.comment_serie}</p>
                 ))}
                 <div class="card-action" style={{bottom:'-19%'}}>
               <form onSubmit={onsubmit2} >
@@ -257,7 +260,7 @@ const onsubmit3=async e=>{
                  <div className="card-reveal">
                 <span className="card-title grey-text text-darken-4">Comments: <i className="material-icons right">close</i></span>
                 {comment_anime1 && comment_anime1.map((comment)=>(
-                  <p>>>> {comment.comment_anime}</p>
+                  <p> {comment.comment_anime}</p>
                 ))}
                 <div class="card-action" style={{bottom:'-19%'}} >
                      <form onSubmit={onsubmit3} >

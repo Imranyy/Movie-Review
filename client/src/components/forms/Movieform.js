@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import Footer from '../Footer';
-import Footerhome from '../Footerhome';
 import { useNavigate } from 'react-router-dom';
 import {db} from '../../FirebaseConfig/Fireconfig';
 import {collection,addDoc} from 'firebase/firestore';
@@ -43,8 +42,7 @@ const Movieform=()=>{
                </p>
                 <Footer/>
                 </form>
-                </div> <br/><br/><br/><br/>
-                <Footerhome/>
+                </div> 
                 </div>
     
     );

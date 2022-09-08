@@ -22,8 +22,8 @@ function App() {
      <Route path='/comment' element={<Comment/>}/>
      <Route path='/movielist' element={<Movies/>}/>
      <Route path='/animationlist' element={<Animation/>}/>
-     <Route path='movieform' element={<Movieform/>}/>
-     <Route path='animeform' element={<Animeform/>}/>
+     <Route path='/movieform' element={<Movieform/>}/>
+     <Route path='/animeform' element={<Animeform/>}/>
      <Route path='*' element={<Notfound/>}/>
      </Routes>
      </div> 
