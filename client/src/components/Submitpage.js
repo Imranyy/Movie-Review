@@ -28,25 +28,23 @@ const Submitpage=()=>{
     }
    
     return(
-        <div className="section no-pad-bot" id="index-banner">
-            <button onClick={back} class="btn-small waves-effect waves-light orange right">Back</button><br/><br/>
-           <div className='container'>
-              
-          <form onSubmit={onSubmit}>
-             <p><h5 className='header'>Tv show/Series:</h5>
-            <input type="text" name='serie_name' placeholder='Tv show /series' value={serie_name} onChange={e=>{setSerie(e.target.value)}} required/> 
-            <h5 className='header'>Youtube trailer Link:</h5>
-            <input type="text" name='serie_trailer' placeholder='(https://www.youtube.com/embed/adEwlFHLWd4)' value={serie_trailer} onChange={e=>{setSerietrailer(e.target.value)}} required/>
-            <h5 className='header'>Author:</h5>
-            <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>setAuthor(e.target.value)} required/> 
-            <h5 className='header'>Review:</h5>
-            <textarea name='review' placeholder=" write your review" value={review} onChange={e=>setReview(e.target.value)} required /> 
-           </p>
-            <Footer/>
-            </form>
+        <div style={{height:'100%'}}>
+            <button onClick={back} class="btn-small waves-effect waves-light orange right" style={{marginTop:'15px',marginRight:'20px'}}>Back</button><br/><br/>
+           <div className='container'> 
+            <form onSubmit={onSubmit}>
+                <p><h5 className='header'>Tv show/Series:</h5>
+                <input type="text" name='serie_name' placeholder='Tv show /series' value={serie_name} onChange={e=>{setSerie(e.target.value)}} required/> 
+                <h5 className='header'>Youtube trailer Link:</h5>
+                <input type="text" name='serie_trailer' placeholder='(https://www.youtube.com/embed/adEwlFHLWd4)' value={serie_trailer} onChange={e=>{setSerietrailer(e.target.value)}} required/>
+                <h5 className='header'>Author:</h5>
+                <input type="text" name='author' placeholder=" Your Name" value={author} onChange={e=>setAuthor(e.target.value)} required/> 
+                <h5 className='header'>Review:</h5>
+                <textarea name='review' placeholder=" write your review" value={review} onChange={e=>setReview(e.target.value)} required /> 
+                </p>
+                <Footer/>
+                </form>
             </div>
-            </div>
-
+        </div>
     );
 }
 export default Submitpage;

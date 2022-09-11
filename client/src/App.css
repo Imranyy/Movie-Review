@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 body {
-  @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
   margin: 0;
   font-family:consolas, arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: whitesmoke;
+  background-color: rgb(241, 237, 221);
   position: relative;
 }
 
@@ -68,21 +68,7 @@ textarea{
   color: #165153;
   margin-bottom: 8px;
 }
-.aboutme{
-  margin-top: -160px;
-  width: 100%;
-  height: 110%;
-  position: fixed;
-  background: rgba(0,0,0,0.4);
-  z-index: 2;
-  display: none;
-}
-.aboutme.open{
-  display: block;
-}
-.aboutme.close{
-  display: none;
-}
+
 .modal1{
   width: 70%;
   height: 40%;
@@ -110,65 +96,7 @@ textarea{
   font-size: 20px;
   transition: 200ms;
 }
-.part1{
- display: block;
-}
-.part1.close{
-  display: none;
-}
-.part2{
-  display: none;
-}
-.part2.open{
-  /*font-family: 'Rubik Glitch', cursive;*/
-  display: block;
-}
 
-.login{
-  margin-top: -160px;
-  width: 100%;
-  height: 110%;
-  position: fixed;
-  background: rgba(0,0,0,0.4);
-  z-index: 3;
-  display: none;
-}
-.login.open{
-  display: block;
-}
-.loginmodal{
-  width: 60%;
-  height: 50%;
-  padding: 30px;
-  margin: 100px auto;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.comment{
-  margin-top: -160px;
-  width: 100%;
-  height: 110%;
-  position: fixed;
-  background: rgba(0,0,0,0.4);
-  z-index: 2;
-  display: none;
-}
-.comment.open{
-  display: block;
-}
-.commentmodal{
-  width: 55%;
-  height: 40%;
-  padding: 30px;
-  margin: 100px auto;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
 @media all and (max-width:600px) {
   body{
     position: relative;
